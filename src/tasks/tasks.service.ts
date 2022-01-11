@@ -27,9 +27,9 @@ export class TasksService {
     return this.tasksRepo.findOne(id);
   }
 
-  async update(id: string, body: any) {
+  async update(id: string, updateTaskDto: UpdateTaskDto) {
     const task = await this.tasksRepo.findOne(id);
-    this.tasksRepo.merge(task, body);
+    this.tasksRepo.merge(task, updateTaskDto);
     return this.tasksRepo.save(task);
   }
 
