@@ -74,4 +74,5 @@ Nest is [MIT licensed](LICENSE).
 
 
 ##
+docker-compose exec database bash
 psql -h localhost -d name_db -U user
