@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  mydb:
+    container_name: mydb
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=my_db
+      - POSTGRES_USER=rcatalan
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./postgres_data:/var/lib/postgresql
+    
