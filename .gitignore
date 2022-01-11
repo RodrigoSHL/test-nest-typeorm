@@ -1,8 +1,9 @@
 # compiled output
 /dist
 /node_modules
-/docker/postgres_data/*
-.scannerwork
+/postgres_data
+/.scannerwork
+.env
 
 # Logs
 logs
