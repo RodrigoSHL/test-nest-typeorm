@@ -11,7 +11,12 @@ describe('TasksController', () => {
         id: 1,
         ...dto
       }
-    })
+    }),
+    update: jest.fn().mockImplementation((id,dto)=> ({
+      id,
+      ...dto
+    })),
+    findAll: jest.fn()
   }
 
   beforeEach(async () => {
@@ -30,19 +35,29 @@ describe('TasksController', () => {
     expect(controller).toBeDefined();
   });
 
-  /*it('should create a user', () => {
-    expect(controller.create({name:'Tarea testing'})).toEqual({
-      id: expect.any(Number),
-      name: 'Tarea testing'
-    })
-  });*/
-
   it('should create a user', () => {
     const dto = {name : 'Tarea testing'};
     expect(controller.create(dto)).toEqual({
       id: expect.any(Number),
       name: dto.name
-    })
+    });
+    expect(mockTasksService.create).toHaveBeenCalledWith(dto);
+
   });
+
+  it('should updated a user', () => {
+    const dto = {name : 'Tarea testing'};
+    expect(controller.update('1',dto)).toEqual({
+      id: '1',
+      ...dto
+    });
+    expect(mockTasksService.update).toHaveBeenCalled();
+  });
+
+  it('should return a user list', () => {
+    expect(controller.findAll());
+    expect(mockTasksService.findAll).toHaveBeenCalled();
+  });
+ 
  
 });
