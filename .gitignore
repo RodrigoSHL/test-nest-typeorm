@@ -4,6 +4,8 @@
 /postgres_data
 /.scannerwork
 .env
+/documentation
+/.vscode
 
 # Logs
 logs

@@ -8,7 +8,7 @@ import { Task } from './../src/tasks/entities/task.entity';
 describe('TasksController (e2e)', () => {
   let app: INestApplication;
 
-  const mockTask = {name:"tarea mocking"};
+  const mockTask = {name: 'tarea mocking'};
 
   const mockTasksRepository = {
       find : jest.fn().mockResolvedValue(mockTask),
