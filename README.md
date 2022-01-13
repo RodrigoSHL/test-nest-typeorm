@@ -76,3 +76,10 @@ Nest is [MIT licensed](LICENSE).
 ##
 docker-compose exec database bash
 psql -h localhost -d name_db -U user
+
+
+sonar-scanner \
+  -Dsonar.projectKey=ejemplo-nest-typeorm \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=c054b92bce540dbd00db909d5d9afbb51f7d0728

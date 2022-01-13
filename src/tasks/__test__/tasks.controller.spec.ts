@@ -16,7 +16,13 @@ describe('TasksController', () => {
       id,
       ...dto
     })),
-    findAll: jest.fn()
+    findAll: jest.fn(),
+    remove: jest.fn().mockImplementation(id => {
+      return true;
+    }),
+    findOne: jest.fn().mockImplementation((id)=> ({
+      id
+    })),
   }
 
   beforeEach(async () => {
@@ -58,6 +64,19 @@ describe('TasksController', () => {
     expect(controller.findAll());
     expect(mockTasksService.findAll).toHaveBeenCalled();
   });
+
+  it('should deleted user', () => {
+    expect(controller.remove('1')).toEqual(true);
+    expect(mockTasksService.remove).toHaveBeenCalled();
+  });
+
+  it('should find a one user', () => {
+    expect(controller.findOne("1")).toEqual({
+      id: "1",
+      });
+    expect(mockTasksService.findOne).toHaveBeenCalled();
+  });
+ 
  
  
 });

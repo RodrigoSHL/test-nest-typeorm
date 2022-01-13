@@ -24,7 +24,10 @@ describe('TasksController (e2e)', () => {
     const moduleFixture: TestingModule = await Test.
     createTestingModule({
       imports: [TasksModule],
-    }).overrideProvider(getRepositoryToken(Task)).useValue(mockTasksRepository).compile();
+    })
+    .overrideProvider(getRepositoryToken(Task))
+    .useValue(mockTasksRepository)
+    .compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();

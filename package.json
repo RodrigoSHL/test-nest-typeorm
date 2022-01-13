@@ -81,6 +81,12 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      ".module.ts",
+      "<rootDir>/src/app/main.ts",
+      ".mock.ts"
+  ],
     "coverageReporters" : ["json", "html"]
   }
 }
